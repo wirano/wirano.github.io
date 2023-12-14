@@ -1,0 +1,10 @@
+[Unit]
+Description=S3 Git Sync Timer
+
+[Timer]
+OnCalendar=*-*-* 04:00:00
+Persistent=true
+
+[Install]
+WantedBy=default.target
+

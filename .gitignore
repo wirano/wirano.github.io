@@ -5,4 +5,5 @@ public/
 .hugo_build.lock
 
 sync_config.toml
+sync.log
 

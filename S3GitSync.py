@@ -100,7 +100,7 @@ class S3GitSync:
     def _commit_and_push_changes(self):
         repo = self.repo
         repo.git.add(A=True)
-        repo.git.commit('-m', 'Sync files with S3')
+        repo.git.commit('-m', 'Sync files')
         repo.git.push()
 
     def compare_and_sync(self):
@@ -108,10 +108,10 @@ class S3GitSync:
         files_to_download = self._compare_local_s3()
         if not files_to_download:
             self.logger.info("No file need to sync")
-            return
-        self._download_files(files_to_download)
+        else:
+            self._download_files(files_to_download)
         self.logger.info("S3 synchronization completed.")
-        #  self._commit_and_push_changes()
+        self._commit_and_push_changes()
         self.logger.info("Git synchronization  completed.")
 
 if __name__ == '__main__':

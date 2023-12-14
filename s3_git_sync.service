@@ -1,0 +1,11 @@
+[Unit]
+Description=S3 Git Sync
+
+[Service]
+ExecStart=/usr/bin/python /path/to/S3GitSync.py
+WorkingDirectory=/path/to/script/directory
+Restart=always
+
+[Install]
+WantedBy=default.target
+
