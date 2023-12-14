@@ -1,0 +1,19 @@
+/*
+ * custom.css
+ * Copyright (C) 2023 wirano
+ *
+ * Distributed under terms of the MIT license.
+ */
+
+:root {
+    --hljs-bg: #eee8d5;
+}
+
+.dark {
+    --hljs-bg: #2e3440;
+}
+
+.chroma {
+  background-color: unset !important;
+}
+

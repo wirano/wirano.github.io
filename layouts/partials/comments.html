@@ -1,0 +1,44 @@
+{{- /* Comments area start */ -}}
+{{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
+<!-- https://github.com/giscus/giscus/issues/1200#issuecomment-1760444097 -->
+<script>
+const giscusAttributes = {
+        "src": "https://giscus.app/client.js",
+        "data-repo": "wirano/wirano.github.io",
+        "data-repo-id": "R_kgDOK4xDEQ",
+        "data-category": "Announcements",
+        "data-category-id": "DIC_kwDOK4xDEc4CbrZ-",
+        "data-mapping": "og:title",
+        "data-strict": "1",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "top",
+        "data-theme": document.body.className.includes("dark") ? "noborder_dark" : "noborder_light",
+        "data-lang": "zh-CN",
+        "crossorigin": "anonymous",
+        "async": "",
+    };
+
+    // Dynamically create script tag
+    const giscusScript = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+
+    // Append the script tag to the <article> element
+    document.querySelector('article').appendChild(giscusScript);
+</script>
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        function sendMessage(message) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+            setConfig: {
+            theme: document.body.className.includes("dark") ? "noborder_light" : "noborder_dark",
+            }
+        });
+    })
+</script>
+{{- /* Comments area end */ -}}

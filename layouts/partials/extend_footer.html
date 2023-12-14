@@ -1,0 +1,18 @@
+<footer class="footer">
+    {{- if site.Copyright }}
+    <!-- <span>{{ site.Copyright | markdownify }}</span> -->
+    <span>
+        {{ replace .Site.Copyright "{year}" now.Year | markdownify}}
+    </span>
+    {{- else }}
+    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+    {{- end }}
+    <br>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener noreferrer" target="_blank">PaperMod</a> 
+        | Hosted on
+        <a href="ihttps://www.cloudflare.com/" rel="noopener noreferrer" target="_blank">Cloudflare</a>
+    </span>
+</footer>

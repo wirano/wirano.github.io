@@ -1,0 +1,101 @@
+baseURL = 'https://blog.wirano.me/'
+title = 'WIRANO BLOG'
+copyright = "© 2023-{year} [WIRANO BLOG](https://blog.wirano.me) Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
+
+theme = 'PaperMod'
+
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+
+hasCJKLanguage = true
+enableInlineShortcodes = true
+enableEmoji = true
+
+[permalinks]
+  posts = '/:year/:month/:title/'
+
+[outputs]
+    home = ['HTML', 'RSS', 'JSON']
+
+[taxonomies]
+      category = 'categories'
+      tag = 'tags'
+      series = 'series'
+
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.highlight]
+        # anchorLineNos = true
+        codeFences = true
+        guessSyntax = true
+        lineNos = true
+        noClasses = false
+        style = 'nord'
+
+[params]
+    #PaperMod theme
+    env = 'production'
+    author = 'wirano'
+    description = "wirano's blog"
+    keywords = ['blog', 'page', 'personal', 'developer']
+    ShowReadingTime = false
+    ShowWordCount = false
+    disableSpecial1stPost = true
+    hideSummary = true
+    ShowToc = true
+    tocopen = false
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    comments = true
+    hideFooter = true # use my own extend_footer.html
+
+    [params.homeInfoParams]
+        Title = 'Hi there 👋'
+        Content = 'Welcome to my blog'
+
+    [params.assets]
+        disableHLJS = true
+
+[[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/wirano'
+
+[[params.socialIcons]]
+    name = 'email'
+    url = 'mailto:i@wirano.me'
+
+[[params.socialIcons]]
+    name = 'rss'
+    url = 'index.xml'
+
+[[params.socialIcons]]
+    name = 'key'
+    url = 'https://github.com/wirano.gpg'
+
+[menu]
+    [[menu.main]]
+        name = 'Home'
+        url = '/'
+        weight = -10
+    [[menu.main]]
+        name = 'Series'
+        url = '/series/'
+        weight = 10
+    [[menu.main]]
+        name = 'Tags'
+        url = '/tags/'
+        weight = 20
+    [[menu.main]]
+        name = 'Archive'
+        url = '/archives/'
+        weight = 30
+    [[menu.main]]
+        name = 'About'
+        url = '/about/'
+        weight = 40
+    [[menu.main]]
+        name = 'Search'
+        url = '/search/'
+        weight = 50
+

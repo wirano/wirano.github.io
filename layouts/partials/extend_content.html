@@ -1,0 +1,32 @@
+<!-- https://gohugo.io/content-management/diagrams/#mermaid-diagrams -->
+<!-- https://github.com/adityatelange/hugo-PaperMod/discussions/853#discussioncomment-3632638 -->
+{{ if .Page.Store.Get "hasMermaid" }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: document.body.className.includes("dark") ? "dark" : "forest" // 自动匹配默认或夜间模式主题。
+  });
+</script>
+{{ end }}
+
+<!-- https://note.qidong.name/2018/03/hugo-mathjax/ -->
+{{ if .Params.math }}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true,
+    },
+    displayMath: [
+      ["$$", "$$"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{{ end }}
+
