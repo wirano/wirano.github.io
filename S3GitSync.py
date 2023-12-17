@@ -100,7 +100,7 @@ class S3GitSync:
     def _commit_and_push_changes(self):
         repo = self.repo
         repo.git.add(A=True)
-        repo.git.commit('-m', 'Sync files')
+        repo.git.commit('-m', '[bot] Sync files')
         repo.git.push()
 
     def compare_and_sync(self):
