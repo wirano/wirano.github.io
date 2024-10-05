@@ -1,0 +1,79 @@
+.links-url {
+  text-decoration:none!important;
+  color:#000;
+  box-shadow:none!important
+}
+
+.mylinks {
+  width:56px!important;
+  height:56px!important;
+  border-radius:50%!important;
+  padding:2px;
+  margin-top:20px!important;
+  margin-left:14px!important;
+  background-color:#fff
+}
+
+.links-div {
+  overflow:auto;
+  height:100px;
+  width:49%;
+  display:inline-block!important;
+  border-radius:5px;
+  background:0 0;
+  -webkit-transition:all ease-out .3s;
+  -moz-transition:all ease-out .3s;
+  -o-transition:all ease-out .3s;
+  transition:all ease-out .3s
+}
+
+.dark .links-div:hover {
+  background:var(--code-bg)
+}
+
+.links-div:hover {
+  background:var(--theme);
+  transition:transform 1s;
+  -webkit-transform:scale(1.1);
+  -moz-transform:scale(1.2);
+  -ms-transform:scale(1.2);
+  -o-transform:scale(1.2);
+  transform:scale(1.1)
+}
+
+.links-div:hover .links-div-left img {
+  transition:.9s!important;
+  -webkit-transition:.9s!important;
+  -moz-transition:.9s!important;
+  -o-transition:.9s!important;
+  -ms-transition:.9s!important;
+  transform:rotate(360deg)!important;
+  -webkit-transform:rotate(360deg)!important;
+  -moz-transform:rotate(360deg)!important;
+  -o-transform:rotate(360deg)!important;
+  -ms-transform:rotate(360deg)!important
+}
+
+.links-div-left {
+  width:92px;
+  float:left;
+  margin-right:-5px
+}
+
+.links-div-right {
+  margin-top:18px;
+  margin-right:18px
+}
+
+.links-name {
+  text-overflow:ellipsis;
+  font-size:100%;
+  margin-bottom:5px;
+  color:var(--primary)
+}
+
+.links-info {
+  text-overflow:ellipsis;
+  font-size:70%;
+  color:var(--primary)
+}
