@@ -1,32 +1,37 @@
 <!-- https://gohugo.io/content-management/diagrams/#mermaid-diagrams -->
 <!-- https://github.com/adityatelange/hugo-PaperMod/discussions/853#discussioncomment-3632638 -->
+<!-- https://github.com/mermaid-js/mermaid/issues/1945 -->
 {{ if .Page.Store.Get "hasMermaid" }}
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: document.body.className.includes("dark") ? "dark" : "forest" // 自动匹配默认或夜间模式主题。
-  });
-</script>
+  <script id="mermaid-script" defer src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+  {{ $LoadMermaid := resources.Get "js/load-mermaid.js" | resources.Minify | resources.Fingerprint "sha512" }}
+  <script defer src="{{ $LoadMermaid.RelPermalink }}"></script>
+  <script>
+    window.onload=function(){window.initMermaid();}
+  </script>
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+        document.body.dispatchEvent(new CustomEvent('light-theme-set'));
+      } else {
+        document.body.dispatchEvent(new CustomEvent('dark-theme-set'));
+      }
+    })
+  </script>
 {{ end }}
 
 <!-- https://note.qidong.name/2018/03/hugo-mathjax/ -->
 {{ if .Params.math }}
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      processEscapes: true,
-    },
-    displayMath: [
-      ["$$", "$$"],
-    ],
-    svg: {
-      fontCache: "global",
-    },
-  };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
+        inlineMath: [['\\(', '\\)']],                 // inline
+        processEscapes: true,
+      },
+      svg: {
+        fontCache: "global",
+      },
+    };
+  </script>
 {{ end }}
-

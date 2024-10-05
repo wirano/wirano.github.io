@@ -1,5 +1,7 @@
-<pre class="mermaid">
-  {{- .Inner | safeHTML }}
+<pre class="mermaid-container">
+  <pre class="language-mermaid">
+    {{- .Inner | safeHTML }}
+  </pre>
 </pre>
 {{ .Page.Store.Set "hasMermaid" true }}
 
